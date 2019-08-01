@@ -1,9 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Containers>
-  <TemplateURL>https://raw.githubusercontent.com/log1x/docker-templates/master/log1x/madsonic.xml</TemplateURL>
-  <Beta>False</Beta>
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>Madsonic</Name>
+  <Repository>log1x/madsonic</Repository>
+  <Registry>https://hub.docker.com/r/log1x/madsonic/</Registry>
+  <Network>bridge</Network>
+  <Privileged>false</Privileged>
+  <GitHub>https://github.com/log1x/docker-madsonic</GitHub>
+  <Support>https://github.com/log1x/docker-madsonic/issues</Support>
+  <Overview>
+    Madsonic is a web-based media library and media streamer with jukebox functionality. It is a fork of Airsonic and Subsonic.
+    [br][br]
+    For complete documentation of this container, see: [a href="https://github.com/log1x/docker-madsonic/blob/master/README.md"]https://github.com/log1x/docker-madsonic/blob/master/README.md[/a].
+  </Overview>
   <Category>MediaServer:Music</Category>
-  <Name>madsonic</Name>
+  <WebUI>http://[IP]:[PORT:4040]/</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/log1x/docker-templates/master/log1x/madsonic.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/log1x/docker-templates/master/log1x/images/madsonic.png</Icon>
+  <ExtraParams/>
   <Description>
     Madsonic is a web-based media library and media streamer with jukebox functionality. Based on Java technology, Madsonic runs on most platforms, including Windows, Mac, Linux, OSX, and Unix variants. If you have constrained bandwidth, you may set an upper limit for the bitrate of the music streams. Madsonic will then automatically resample the music to a suitable bitrate.[br]
     In addition to being a streaming media server, Madsonic works very well as a local jukebox. The intuitive web interface, as well as search and index facilities, are optimized for efficient browsing through large media libraries.[br]
@@ -12,21 +25,9 @@
     [b]/data[/b] This is where Madsonic will store it's configuration file, database and logs.[br]
     [b]/music[/b] This is where Madsonic will scan for music files.[br][br]
   </Description>
-  <Overview>
-    Madsonic is a web-based media library and media streamer with jukebox functionality. Based on Java technology, Madsonic runs on most platforms, including Windows, Mac, Linux, OSX, and Unix variants. If you have constrained bandwidth, you may set an upper limit for the bitrate of the music streams. Madsonic will then automatically resample the music to a suitable bitrate.[br][br]
-    In addition to being a streaming media server, Madsonic works very well as a local jukebox. The intuitive web interface, as well as search and index facilities, are optimized for efficient browsing through large media libraries.[br]
-    Clients can connect via the built in website or with many other clients that support the Madsonic/Subsonic REST API.[br][br][br][br]
-  </Overview>
-  <Support>https://github.com/log1x/docker-madsonic/issues</Support>
-  <Registry>https://registry.hub.docker.com/u/log1x/madsonic/</Registry>
-  <GitHub>https://github.com/log1x/docker-madsonic</GitHub>
-  <Repository>log1x/madsonic</Repository>
+  <Beta>False</Beta>
   <Project>https://www.madsonic.org</Project>
-  <BindTime>true</BindTime>
-  <Privileged>false</Privileged>
-  <WebUI>http://[IP]:[PORT:4040]/</WebUI>
-  <Icon>https://i.imgur.com/B07gcee.pngg</Icon>
-  <ExtraParams></ExtraParams>
+  <Date>2019-09-01</Date>
   <Networking>
     <Mode>bridge</Mode>
     <Publish>
@@ -101,17 +102,17 @@
       <Mode>ro</Mode>
     </Volume>
   </Data>
-  <Config Name="Data path" Target="/data" Default="/mnt/cache/appdata/madsonic" Mode="rw" description="Container Path: /data" Type="Path" Display="always" Required="true" Mask="false"/>
-  <Config Name="Music path" Target="/music" Default="/mnt/user/music" Mode="ro" description="Container Path: /music" Type="Path" Display="always" Required="true" Mask="false"/>
-  <Config Name="Podcasts path" Target="/podcasts" Default="/mnt/user/music/Podcasts" Mode="ro" description="Container Path: /podcasts" Type="Path" Display="always" Required="true" Mask="false"/>
-  <Config Name="Playlists path" Target="/playlists" Default="/mnt/user/music/Playlists" Mode="ro" description="Container Path: /playlists" Type="Path" Display="always" Required="true" Mask="false"/>
-  <Config Name="HTTP" Target="4040" Default="4040" Mode="tcp" description="Container Port: 4040" Type="Port" Display="advanced-hide" Required="true" Mask="false"/>
-  <Config Name="HTTPS" Target="4050" Default="4050" Mode="tcp" description="Container Port 4050" Type="Port" Display="advanced-hide" Required="true" Mask="false"/>
-  <Config Name="Use SSL" Target="SSL" Default="yes" Mode="" description="Container Variable: SSL" Type="Variable" Display="advanced-hide" Required="true" Mask="false"/>
-  <Config Name="Context path" Target="CONTEXT_PATH" Default="/" Mode="" description="Container Variable: CONTEXT_PATH" Type="Variable" Display="advanced-hide" Required="true" Mask="false"/>
-  <Config Name="Timezone" Target="TZ" Default="America/Chicago" Mode=""  description="Container Variable: TZ" Type="Variable" Display="advanced-hide" Mask="false"/>
-  <Config Name="Java heap size" Target="MAX_MEMORY" Default="2048" Mode="" description="Container Variable: MAX_MEMORY" Type="Variable" Display="advanced-hide" Required="true" Mask="false"/>
-  <Config Name="PUID" Target="PUID" Default="1000" Mode="" description="Container Variable: PUID"  Type="Variable" Display="advanced-hide" Required="true" Mask="false"/>
-  <Config Name="PGID" Target="PGID" Default="1000" Mode="" description="Container Variable: PGID" Type="Variable" Display="advanced-hide" Required="true" Mask="false"/>
-  <Config Name="UMASK" Target="UMASK" Default="000" Mode="" description="Container Variable: UMASK" Type="Variable" Display="advanced-hide" Required="true" Mask="false"/>
+  <Config Name="Data path" Target="/data" Default="/mnt/cache/appdata/madsonic" Mode="rw" Description="Container Path: /data" Type="Path" Display="always" Required="true" Mask="false"/>
+  <Config Name="Music path" Target="/music" Default="/mnt/user/music" Mode="ro" Description="Container Path: /music" Type="Path" Display="always" Required="true" Mask="false"/>
+  <Config Name="Podcasts path" Target="/podcasts" Default="/mnt/user/music/Podcasts" Mode="ro" Description="Container Path: /podcasts" Type="Path" Display="always" Required="true" Mask="false"/>
+  <Config Name="Playlists path" Target="/playlists" Default="/mnt/user/music/Playlists" Mode="ro" Description="Container Path: /playlists" Type="Path" Display="always" Required="true" Mask="false"/>
+  <Config Name="HTTP" Target="4040" Default="4040" Mode="tcp" Description="Container Port: 4040" Type="Port" Display="advanced-hide" Required="true" Mask="false"/>
+  <Config Name="HTTPS" Target="4050" Default="4050" Mode="tcp" Description="Container Port 4050" Type="Port" Display="advanced-hide" Required="true" Mask="false"/>
+  <Config Name="Use SSL" Target="SSL" Default="yes" Mode="" Description="Container Variable: SSL" Type="Variable" Display="advanced-hide" Required="true" Mask="false"/>
+  <Config Name="Context path" Target="CONTEXT_PATH" Default="/" Mode="" Description="Container Variable: CONTEXT_PATH" Type="Variable" Display="advanced-hide" Required="true" Mask="false"/>
+  <Config Name="Timezone" Target="TZ" Default="America/Chicago" Mode=""  Description="Container Variable: TZ" Type="Variable" Display="advanced-hide" Mask="false"/>
+  <Config Name="Java heap size" Target="MAX_MEMORY" Default="2048" Mode="" Description="Container Variable: MAX_MEMORY" Type="Variable" Display="advanced-hide" Required="true" Mask="false"/>
+  <Config Name="PUID" Target="PUID" Default="1000" Mode="" Description="Container Variable: PUID"  Type="Variable" Display="advanced-hide" Required="true" Mask="false"/>
+  <Config Name="PGID" Target="PGID" Default="1000" Mode="" Description="Container Variable: PGID" Type="Variable" Display="advanced-hide" Required="true" Mask="false"/>
+  <Config Name="UMASK" Target="UMASK" Default="000" Mode="" Description="Container Variable: UMASK" Type="Variable" Display="advanced-hide" Required="true" Mask="false"/>
 </Containers>
