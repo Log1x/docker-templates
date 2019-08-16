@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>Mopidy-Iris</Name>
+  <Repository>log1x/mopidy-iris</Repository>
+  <Registry>https://hub.docker.com/r/log1x/mopidy-iris/</Registry>
+  <Network>bridge</Network>
+  <Privileged>false</Privileged>
+  <GitHub>https://github.com/log1x/docker-mopidy-iris</GitHub>
+  <Support>https://github.com/log1x/docker-mopidy-iris/issues</Support>
+  <Overview>
+    [br]
+    Iris (formerly known as Spotmop) is an extension for the Mopidy music server. 
+    [br][br]
+    With support for Spotify, LastFM, Snapcast, Icecast and many other extensions, Iris is the software that brings all your music into one user-friendly and unified interface.
+    [br][br]
+    For complete documentation of this container, see: [a href="https://github.com/log1x/docker-mopidy-iris/blob/master/README.md"]https://github.com/log1x/docker-mopidy-iris/blob/master/README.md[/a].
+    [br]
+  </Overview>
+  <Category>MediaApp:Music MediaServer:Music</Category>
+  <WebUI>http://[IP]:[PORT:6680]/</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/log1x/docker-templates/master/log1x/mopidy-iris.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/log1x/docker-templates/master/log1x/images/mopidy-iris.png</Icon>
+  <ExtraParams/>
+  <Description>
+    Iris (formerly known as Spotmop) is an extension for the Mopidy music server.
+    [br][br]
+    With support for Spotify, LastFM, Snapcast, Icecast and many other extensions, Iris is the software that brings all your music into one user-friendly and unified interface.
+    [br][br]
+    [b][u][span style='color: #E80000;']Configuration[/span][/u][/b]
+    [br]
+    [b]/data[/b] This is where Mopidy will store it's configuration file, database and logs.
+    [br]
+    [b]/music[/b] This is where Mopidy will scan for music.
+    [br]
+    [b]/playlists[/b] This is where Mopidy will scan for playlists.
+    [br][br]
+  </Description>
+  <Beta>False</Beta>
+  <Project>https://github.com/jaedb/Iris</Project>
+  <Date>2019-16-08</Date>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>6600</HostPort>
+        <ContainerPort>6600</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>6680</HostPort>
+        <ContainerPort>6680</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>5555</HostPort>
+        <ContainerPort>5555</ContainerPort>
+        <Protocol>udp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Environment>
+    <Variable>
+      <Name>PUID</Name>
+      <Value>1000</Value>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Name>PGID</Name>
+      <Value>1000</Value>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Name>UMASK</Name>
+      <Value>000</Value>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/cache/appdata/mopidy-iris</HostDir>
+      <ContainerDir>/data</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/music</HostDir>
+      <ContainerDir>/music</ContainerDir>
+      <Mode>ro</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/music/Playlists</HostDir>
+      <ContainerDir>/playlists</ContainerDir>
+      <Mode>ro</Mode>
+    </Volume>
+  </Data>
+  <Config Name="Data path" Target="/data" Default="/mnt/cache/appdata/mopidy-iris" Mode="rw" Description="Container Path: /data" Type="Path" Display="always" Required="true" Mask="false"/>
+  <Config Name="Music path" Target="/music" Default="/mnt/user/music" Mode="ro" Description="Container Path: /music" Type="Path" Display="always" Required="true" Mask="false"/>
+  <Config Name="Playlists path" Target="/playlists" Default="/mnt/user/music/Playlists" Mode="ro" Description="Container Path: /playlists" Type="Path" Display="always" Required="true" Mask="false"/>
+  <Config Name="Iris (Web UI)" Target="6680" Default="6680" Mode="tcp" Description="Container Port: 6680" Type="Port" Display="advanced-hide" Required="true" Mask="false"/>
+  <Config Name="Mopidy" Target="6600" Default="6600" Mode="tcp" Description="Container Port: 6600" Type="Port" Display="advanced-hide" Required="true" Mask="false"/>
+  <Config Name="MPD" Target="5555" Default="5555" Mode="udp" Description="Container Port: 5555" Type="Variable" Display="advanced-hide" Required="true" Mask="false"/>
+  <Config Name="PUID" Target="PUID" Default="1000" Mode="" Description="Container Variable: PUID"  Type="Variable" Display="advanced-hide" Required="true" Mask="false"/>
+  <Config Name="PGID" Target="PGID" Default="1000" Mode="" Description="Container Variable: PGID" Type="Variable" Display="advanced-hide" Required="true" Mask="false"/>
+  <Config Name="UMASK" Target="UMASK" Default="000" Mode="" Description="Container Variable: UMASK" Type="Variable" Display="advanced-hide" Required="true" Mask="false"/>
+</Container>
