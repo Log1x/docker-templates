@@ -31,8 +31,6 @@
     [b]/data[/b] This is where Mopidy will store it's configuration file, database and logs.
     [br]
     [b]/music[/b] This is where Mopidy will scan for music.
-    [br]
-    [b]/playlists[/b] This is where Mopidy will scan for playlists.
     [br][br]
   </Description>
   <Beta>False</Beta>
@@ -52,9 +50,9 @@
         <Protocol>tcp</Protocol>
       </Port>
       <Port>
-        <HostPort>5555</HostPort>
-        <ContainerPort>5555</ContainerPort>
-        <Protocol>udp</Protocol>
+        <HostPort>8000</HostPort>
+        <ContainerPort>8000</ContainerPort>
+        <Protocol>tcp</Protocol>
       </Port>
     </Publish>
   </Networking>
@@ -86,18 +84,12 @@
       <ContainerDir>/music</ContainerDir>
       <Mode>ro</Mode>
     </Volume>
-    <Volume>
-      <HostDir>/mnt/user/music/Playlists</HostDir>
-      <ContainerDir>/playlists</ContainerDir>
-      <Mode>ro</Mode>
-    </Volume>
   </Data>
   <Config Name="Data path" Target="/data" Default="/mnt/cache/appdata/mopidy-iris" Mode="rw" Description="Container Path: /data" Type="Path" Display="always" Required="true" Mask="false"/>
   <Config Name="Music path" Target="/music" Default="/mnt/user/music" Mode="ro" Description="Container Path: /music" Type="Path" Display="always" Required="true" Mask="false"/>
-  <Config Name="Playlists path" Target="/playlists" Default="/mnt/user/music/Playlists" Mode="ro" Description="Container Path: /playlists" Type="Path" Display="always" Required="true" Mask="false"/>
   <Config Name="Iris (Web UI)" Target="6680" Default="6680" Mode="tcp" Description="Container Port: 6680" Type="Port" Display="advanced-hide" Required="true" Mask="false"/>
   <Config Name="Mopidy" Target="6600" Default="6600" Mode="tcp" Description="Container Port: 6600" Type="Port" Display="advanced-hide" Required="true" Mask="false"/>
-  <Config Name="MPD" Target="5555" Default="5555" Mode="udp" Description="Container Port: 5555" Type="Variable" Display="advanced-hide" Required="true" Mask="false"/>
+  <Config Name="Icecast" Target="8000" Default="8000" Mode="tcp" Description="Container Port: 8000" Type="Port" Display="advanced-hide" Required="true" Mask="false"/>
   <Config Name="PUID" Target="PUID" Default="1000" Mode="" Description="Container Variable: PUID"  Type="Variable" Display="advanced-hide" Required="true" Mask="false"/>
   <Config Name="PGID" Target="PGID" Default="1000" Mode="" Description="Container Variable: PGID" Type="Variable" Display="advanced-hide" Required="true" Mask="false"/>
   <Config Name="UMASK" Target="UMASK" Default="000" Mode="" Description="Container Variable: UMASK" Type="Variable" Display="advanced-hide" Required="true" Mask="false"/>
