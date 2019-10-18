@@ -9,7 +9,7 @@
   <Support>https://github.com/log1x/docker-rtorrent-flood/issues</Support>
   <Overview>
     [br]
-    A minimal, performant, barebones container for rTorrent & Flood.
+    A minimal, performant, barebones container for rTorrent and Flood.
     [br][br]
     For complete documentation of this container, see: [a href="https://github.com/log1x/docker-rtorrent-flood/blob/master/README.md"]https://github.com/log1x/docker-rtorrent-flood/blob/master/README.md[/a].
     [br]
@@ -20,7 +20,7 @@
   <Icon>https://raw.githubusercontent.com/log1x/docker-templates/master/log1x/images/rtorrent-flood.png</Icon>
   <ExtraParams/>
   <Description>
-    A minimal, performant, barebones container for rTorrent & Flood.
+    A minimal, performant, barebones container for rTorrent and Flood.
     [br][br]
     [b][u][span style='color: #E80000;']Configuration[/span][/u][/b]
     [br]
