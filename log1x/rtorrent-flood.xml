@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>rTorrent-Flood</Name>
+  <Repository>log1x/rtorrent-flood</Repository>
+  <Registry>https://hub.docker.com/r/log1x/rtorrent-flood/</Registry>
+  <Network>bridge</Network>
+  <Privileged>false</Privileged>
+  <GitHub>https://github.com/log1x/docker-rtorrent-flood</GitHub>
+  <Support>https://github.com/log1x/docker-rtorrent-flood/issues</Support>
+  <Overview>
+    [br]
+    A minimal, performant, barebones container for rTorrent & Flood.
+    [br][br]
+    For complete documentation of this container, see: [a href="https://github.com/log1x/docker-rtorrent-flood/blob/master/README.md"]https://github.com/log1x/docker-rtorrent-flood/blob/master/README.md[/a].
+    [br]
+  </Overview>
+  <Category>Downloaders:</Category>
+  <WebUI>http://[IP]:[PORT:3000]/</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/log1x/docker-templates/master/log1x/rtorrent-flood.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/log1x/docker-templates/master/log1x/images/rtorrent-flood.png</Icon>
+  <ExtraParams/>
+  <Description>
+    A minimal, performant, barebones container for rTorrent & Flood.
+    [br][br]
+    [b][u][span style='color: #E80000;']Configuration[/span][/u][/b]
+    [br]
+    [b]/config[/b] This is where rTorrent and Flood will store configuration.
+    [br]
+    [b]/data[/b] This is where rTorrent will store downloads.
+    [br][br]
+  </Description>
+  <Beta>False</Beta>
+  <Project>https://github.com/Flood-UI/flood</Project>
+  <Date>2019-17-10</Date>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>3000</HostPort>
+        <ContainerPort>3000</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>49184</HostPort>
+        <ContainerPort>49184</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>49184</HostPort>
+        <ContainerPort>49184</ContainerPort>
+        <Protocol>udp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Environment>
+    <Variable>
+      <Name>PUID</Name>
+      <Value>1000</Value>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Name>PGID</Name>
+      <Value>1000</Value>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/cache/appdata/rtorrent-flood</HostDir>
+      <ContainerDir>/config</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/downloads</HostDir>
+      <ContainerDir>/data</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Config Name="Config path" Target="/config" Default="/mnt/cache/appdata/rtorrent-flood" Mode="rw" Description="Container Path: /config" Type="Path" Display="always" Required="true" Mask="false"/>
+  <Config Name="Data path" Target="/data" Default="/mnt/user/downloads" Mode="rw" Description="Container Path: /data" Type="Path" Display="always" Required="true" Mask="false"/>
+  <Config Name="Flood" Target="3000" Default="3000" Mode="tcp" Description="Container Port: 3000" Type="Port" Display="advanced-hide" Required="true" Mask="false"/>
+  <Config Name="rTorrent" Target="49184" Default="49184" Mode="tcp" Description="Container Port: 49184" Type="Port" Display="advanced-hide" Required="true" Mask="false"/>
+  <Config Name="rTorrent (UDP)" Target="49184" Default="49184" Mode="udp" Description="Container Port: 49184/udp" Type="Port" Display="advanced-hide" Required="true" Mask="false"/>
+  <Config Name="PUID" Target="PUID" Default="1000" Mode="" Description="Container Variable: PUID"  Type="Variable" Display="advanced-hide" Required="true" Mask="false"/>
+  <Config Name="PGID" Target="PGID" Default="1000" Mode="" Description="Container Variable: PGID" Type="Variable" Display="advanced-hide" Required="true" Mask="false"/>
+</Container>
