@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <Container version="2">
-  <Name>rtorrent-flood</Name>
+  <Name>rTorrent-Flood</Name>
   <Repository>log1x/rtorrent-flood</Repository>
   <Registry>https://hub.docker.com/r/log1x/rtorrent-flood/</Registry>
   <Network>bridge</Network>
