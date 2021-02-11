@@ -41,6 +41,11 @@
         <Protocol>tcp</Protocol>
       </Port>
       <Port>
+        <HostPort>3001</HostPort>
+        <ContainerPort>3001</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
         <HostPort>49184</HostPort>
         <ContainerPort>49184</ContainerPort>
         <Protocol>tcp</Protocol>
